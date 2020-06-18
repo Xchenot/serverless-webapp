@@ -1,0 +1,45 @@
+##################
+# Docker Compose #
+##################
+
+version: "3"
+
+#####################
+# Docker Containers #
+#####################
+
+services:
+  ########
+  # Node #
+  ########
+
+  node:
+    image: node:12.15-alpine
+    entrypoint: ./docker/node/entrypoint.sh
+    working_dir: /root/app
+    command: npm run start
+    environment:
+      - SERVER_PORT=${SERVER_PORT}
+    env_file:
+      - ./env/default
+      - ./env/secrets
+    ports:
+      - ${SERVER_PORT}:${SERVER_PORT}
+    volumes:
+      - .:/root/app
+      - ./.bash-history/node:/root/.bash_history
+      - ~/.aws:/root/.aws
+      - ~/.npm:/root/.npm
+
+  #############
+  # Terraform #
+  #############
+
+  terraform:
+    image: hashicorp/terraform:0.12.26
+    entrypoint: /root/app/docker/terraform/entrypoint.sh
+    working_dir: /root/app/terraform
+    volumes:
+      - ./docker/terraform:/root/app/docker/terraform
+      - .:/root/app
+      - ./.bash-history/terraform:/root/.bash_history

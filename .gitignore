@@ -1,0 +1,21 @@
+#######################
+#*********************#
+#######################
+
+# FRONTEND
+
+frontend/build
+
+# Node
+
+
+frontend/node_modules
+frontend/build
+frontend/*.log
+
+# Docker
+
+/.bash-history
+/docker-compose.override.yml
+
+

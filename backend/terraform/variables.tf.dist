@@ -1,0 +1,25 @@
+###############
+# AWS account #
+###############
+
+variable "access_key" {
+  type        = string
+  description = "The access key of your aws account"
+  default = "CHANGEME"
+}
+
+variable "secret_key" {
+  type        = string
+  description = "The secret key of your aws account"
+  default = "CHANGEME"
+}
+
+###############
+# API Gateway #
+###############
+
+variable "api_key" {
+  type        = string
+  description = "The api key value"
+  default = "CHANGEME"
+}

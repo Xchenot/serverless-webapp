@@ -1,0 +1,31 @@
+##################
+# Docker Compose #
+##################
+
+version: "3"
+
+#####################
+# Docker Containers #
+#####################
+
+services:
+  ########
+  # Node #
+  ########
+
+  node:
+    build: ./docker/node
+    # image: node:12.15-alpine
+    # entrypoint: ./docker/node/entrypoint.sh
+    working_dir: /root/app
+    command: npm start
+    environment:
+      - SERVER_PORT=${SERVER_PORT}
+    env_file:
+      - .env
+    ports:
+      - ${SERVER_PORT}:${SERVER_PORT}
+    volumes:
+      - .:/root/app
+      - ./.bash-history/node:/root/.bash_history
+      - ~/.npm:/root/.npm

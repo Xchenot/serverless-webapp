@@ -1,0 +1,22 @@
+{
+  "name": "lambda-gateway-template",
+  "version": "1.0.0",
+  "description": "This project provides a template to deploy a Lambda attached to its API Gateway deploy with terraform.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xchenot/lambda-gateway-template.git"
+  },
+  "author": "Xavier Chénot",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Xchenot/lambda-gateway-template/issues"
+  },
+  "homepage": "https://github.com/Xchenot/lambda-gateway-template#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  }
+}
